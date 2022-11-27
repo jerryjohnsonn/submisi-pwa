@@ -1,5 +1,5 @@
 import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb';
-import LikeButtonInitiator from '../src/scripts/utils/like-button-initiator';
+import * as TestFactories from './helpers/testFactories';
 
 describe('Unliking a restaurant', () => {
   const addLikeButtonContainer = () => {
@@ -16,36 +16,19 @@ describe('Unliking a restaurant', () => {
   });
 
   it('should display unlike widget when the restaurant has been liked', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 1
-      },
-    });
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-    expect(document.querySelector('[aria-label="unlike this restaurant"]'))
-      .toBeTruthy();
+    expect(document.querySelector('[aria-label="unlike this restaurant"]')).toBeTruthy();
   });
 
   it('should not display like widget when the restaurant has been liked', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-    expect(document.querySelector('[aria-label="like this restaurant"]'))
-      .toBeFalsy();
+    expect(document.querySelector('[aria-label="like this restaurant"]')).toBeFalsy();
   });
 
   it('should be able to remove liked restaurant from the list', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
     document.querySelector('[aria-label="unlike this restaurant"]').dispatchEvent(new Event('click'));
 
@@ -53,12 +36,7 @@ describe('Unliking a restaurant', () => {
   });
 
   it('should not throw error if the unliked restaurant is not in the list', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
     await FavoriteRestaurantIdb.deleteRestaurant(1);
 
