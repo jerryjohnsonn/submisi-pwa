@@ -42,8 +42,7 @@ describe('Searching restaurants', () => {
   it('should ask the model to search for liked restaurants', () => {
     searchRestaurants('restaurant a');
 
-    expect(FavoriteRestaurantIdb.searchRestaurants)
-      .toHaveBeenCalledWith('restaurant a');
+    expect(FavoriteRestaurantIdb.searchRestaurants).toHaveBeenCalledWith('restaurant a');
   });
 
   it('should show the found restaurants', () => {
@@ -96,22 +95,22 @@ describe('Searching restaurants', () => {
     searchRestaurants('restaurant a');
   });
 
-  // it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
-  //   document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
-  //     const restaurantTitles = document.querySelectorAll('.restaurant__title');
-  //     expect(restaurantTitles.item(0).textContent).toEqual('restaurant abc');
-  //     expect(restaurantTitles.item(1).textContent).toEqual('ini juga restaurant abcde');
-  //     expect(restaurantTitles.item(2).textContent).toEqual('ini juga boleh restaurant a');
+  fit('should show the name of the restaurants found by Favorite Restaurants', (done) => {
+    document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+      const restaurantTitles = document.querySelectorAll('.restaurant__title');
+      expect(restaurantTitles.item(0).textContent).toEqual('restaurant abc');
+      expect(restaurantTitles.item(1).textContent).toEqual('ini juga restaurant abcde');
+      expect(restaurantTitles.item(2).textContent).toEqual('ini juga boleh restaurant a');
 
-  //     done();
-  //   });
+      done();
+    });
 
-  //   FavoriteRestaurantIdb.searchRestaurants.withArgs('film a').and.returnValues([
-  //     { id: 111, title: 'restaurant abc' },
-  //     { id: 222, title: 'ada juga restaurant abcde' },
-  //     { id: 333, title: 'ini juga boleh restaurant a' },
-  //   ]);
+    FavoriteRestaurantIdb.searchRestaurants.withArgs('film a').and.returnValues([
+      { id: 111, title: 'restaurant abc' },
+      { id: 222, title: 'ada juga restaurant abcde' },
+      { id: 333, title: 'ini juga boleh restaurant a' },
+    ]);
 
-  //   searchRestaurants('restaurant a');
-  // });
+    searchRestaurants('restaurant a');
+  });
 });
