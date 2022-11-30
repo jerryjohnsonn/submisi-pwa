@@ -20,7 +20,6 @@ class FavoriteRestaurantSeachPresenter {
   }
 
   _showFoundRestaurants(restaurants) {
-    console.log(restaurants);
     const html = restaurants.reduce((carry, restaurant) => carry.concat(`<li class="restaurant"><span class="restaurant__title">${restaurant.title || '-'}</span></li>`), '');
 
     document.querySelector('.restaurants').innerHTML = html;
