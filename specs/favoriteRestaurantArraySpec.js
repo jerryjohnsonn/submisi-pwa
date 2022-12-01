@@ -1,9 +1,8 @@
-import { itActsAsFavoriteRestaurantModel } from "./contract/favoriteRestaurantContract";
+import { itActsAsFavoriteRestaurantModel } from './contract/favoriteRestaurantContract';
 
 let favoriteRestaurants = [];
 
 const FavoriteRestaurantArray = {
-
   getRestaurant(id) {
     if (!id) {
       return;
@@ -20,7 +19,7 @@ const FavoriteRestaurantArray = {
   putRestaurant(restaurant) {
     // eslint-disable-next-line no-prototype-builtins
     if (!restaurant.hasOwnProperty('id')) {
-      return; 
+      return;
     }
 
     if (this.getRestaurant(restaurant.id)) {
@@ -36,7 +35,7 @@ const FavoriteRestaurantArray = {
 
 describe('Favorite Movie Array Contract Test Implementation', () => {
   // eslint-disable-next-line no-return-assign
-  afterEach(() => favoriteRestaurants = []);
+  afterEach(() => (favoriteRestaurants = []));
 
   itActsAsFavoriteRestaurantModel(FavoriteRestaurantArray);
 });
