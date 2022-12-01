@@ -9,7 +9,7 @@ const createRestaurantTemplate = (restaurant) => `
     </div>
   </div>
   <div class="card-text">
-    <h3><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h3>
+    <h3 class ="restaurant__title"><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h3>
     <h4 tabindex="0">Rating: ⭐️${restaurant.rating}</h4>
     <p tabindex="0">${restaurant.description}</p>
   </div>
@@ -28,9 +28,13 @@ const createRestaurantDetailTemplate = (restaurant) => `
         <h4 tabindex="0">City : ${restaurant.city}</h4>
         <h4 class="container-detail-address" tabindex="0">Alamat : ${restaurant.address}</h4>
         <h4 class="container-detail-category" tabindex="0">Category:
-        ${restaurant.categories.map((category) => `
+        ${restaurant.categories
+          .map(
+            (category) => `
            ${category.name}
-        `).join(', ')}
+        `
+          )
+          .join(', ')}
         </h4>
         <br>
         <h4 class="container-detail-description" tabindex="0">Description: </h4>
@@ -39,47 +43,50 @@ const createRestaurantDetailTemplate = (restaurant) => `
         </p>
         <br>
         <h4 class="container-detail-food" tabindex="0">Food:</h4>
-        ${restaurant.menus.foods.map((food) => `
+        ${restaurant.menus.foods.map(
+          (food) => `
           <span tabindex="0">${food.name}</span>
-        `)}
+        `
+        )}
         <br>
         <br>
         <h4 class="container-detail-drink" tabindex="0">Drink:</h4>
-        ${restaurant.menus.drinks.map((drink) => `
+        ${restaurant.menus.drinks.map(
+          (drink) => `
           <span tabindex="0">${drink.name}</span>
-        `)}
+        `
+        )}
       </div>
     </div>
       <div class="container-detail-right">
         <h2 tabindex="0">Some reviews</h2>
         <div class="reviews">
-          ${restaurant.customerReviews.map((review) => `
+          ${restaurant.customerReviews
+            .map(
+              (review) => `
             <div class="review-box">
               <b tabindex="0">${review.name}</b>
               <p tabindex="0">${review.date}</p>
               <p tabindex="0">${review.review}</p>
             </div>
-          `).join('')}
+          `
+            )
+            .join('')}
         </div>
       </div>
   </div>
 `;
 
-const createLikeButtonTemplate = () => `
+const createLikeRestaurantButtonTemplate = () => `
   <button aria-label="like this restaurant" id="likeButton" class="like" tabindex="0">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
 `;
- 
-const createLikedButtonTemplate = () => `
+
+const createUnlikeRestaurantButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like" tabindex="0">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
-export {
-  createRestaurantTemplate, 
-  createRestaurantDetailTemplate,
-  createLikeButtonTemplate,
-  createLikedButtonTemplate,
-};
+export { createRestaurantTemplate, createRestaurantDetailTemplate, createLikeRestaurantButtonTemplate, createUnlikeRestaurantButtonTemplate };
