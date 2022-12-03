@@ -1,74 +1,80 @@
 @media screen and (min-width: 550px) {
-  .jumbotron-hero-element{
+  .jumbotron-hero-element {
     height: 80vh;
   }
-  #restaurants{
+  #restaurants {
     grid-template-columns: auto auto;
   }
 }
 
-@media screen and (max-width: 550px){
-  .container-detail{
+@media screen and (min-width: 800px) {
+  .jumbotron-hero-element {
+    background-image: linear-gradient(rgba(7, 7, 7, 0.527), rgba(49, 49, 49, 0.5)), url('../public/images/heroes/hero-image_2-large.jpg');
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container-detail {
     grid-template-columns: auto;
   }
 }
 
-@media screen and (max-width: 650px){
-  .app-bar{
+@media screen and (max-width: 650px) {
+  .app-bar {
     height: 15vh;
   }
 }
 
-@media screen and (min-width: 768px){
-  html{
+@media screen and (min-width: 768px) {
+  html {
     font-size: 18px;
   }
 }
 
-@media screen and (min-width: 900px){
-  #restaurants{
+@media screen and (min-width: 900px) {
+  #restaurants {
     grid-template-columns: auto auto auto;
   }
 }
 
-@media screen and (min-width: 1024px){
-  html{
+@media screen and (min-width: 1024px) {
+  html {
     font-size: 20px;
   }
-  #restaurants{
+  #restaurants {
     grid-template-columns: auto auto auto auto;
   }
-  .jumbotron-hero-element{
+  .jumbotron-hero-element {
     height: 85vh;
   }
 }
 
-@media screen and (min-width: 1440px){
-  #restaurants{
+@media screen and (min-width: 1440px) {
+  #restaurants {
     grid-template-columns: auto auto auto auto auto;
   }
-  html{
+  html {
     font-size: 22px;
   }
 }
 
-@media screen and (min-width: 2560px){
-  html{
+@media screen and (min-width: 2560px) {
+  html {
     font-size: 25px;
   }
-  #restaurants{
+  #restaurants {
     grid-template-columns: auto auto auto auto auto auto;
   }
 }
 
 @media screen and (min-width: 650px) {
-  .app-bar-menu{
+  .app-bar-menu {
     display: none;
   }
-  header.app-bar{
+  header.app-bar {
     grid-template-columns: auto 1fr;
   }
-  .app-bar-brand .brand-image{
+  .app-bar-brand .brand-image {
     height: 50px;
     width: 50px;
   }
@@ -76,7 +82,7 @@
     padding-top: 5px;
     font-size: 1.5rem;
   }
-  nav.navigationDrawer{
+  nav.navigationDrawer {
     display: flex;
     width: auto;
     position: static;
@@ -88,21 +94,21 @@
     margin-right: 10px;
     box-shadow: none;
   }
-  nav.navigationDrawer ul{
+  nav.navigationDrawer ul {
     display: flex;
     flex-direction: row;
     padding-top: 5px;
   }
-  nav.navigationDrawer ul li a{
+  nav.navigationDrawer ul li a {
     border-bottom: none;
   }
-  .jumbotron-hero-element{
+  .jumbotron-hero-element {
     height: 75vh;
   }
-  .information-container{
+  .information-container {
     width: 60vw;
   }
-  .container-detail-left img{
+  .container-detail-left img {
     width: 60vw;
   }
 }
