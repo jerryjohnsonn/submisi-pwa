@@ -7,6 +7,7 @@ Before(({ I }) => {
 });
 
 Scenario('Liking a restaurant and unliking a restaurant', async ({ I }) => {
+  pause();
   I.waitForElement('#main-content');
   I.waitForElement('#restaurants .card');
   I.see('Restaurant List', '.content_heading');
@@ -26,4 +27,5 @@ Scenario('Liking a restaurant and unliking a restaurant', async ({ I }) => {
   I.waitForElement('#likeButton');
   I.click('#likeButton');
   I.amOnPage('/#/favorite');
+  I.dontSeeElement('.card');
 });
